@@ -1,0 +1,10 @@
+bin/
+obj/
+.vs/
+*.user
+appsettings.*.json
+data/*.db
+data/*.sqlite
+reports/
+logs/
+.svn/

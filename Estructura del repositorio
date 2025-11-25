@@ -1,0 +1,52 @@
+PampaGanadero.Check/
+├── .gitignore
+├── LICENSE
+├── README.md
+├── PampaGanadero.Check.sln
+│
+├── src/
+│   ├── Core/                       # Dominio puro (C# net8.0)
+│   │   ├── Entities/
+│   │   │   ├── Animal.cs
+│   │   │   ├── EarTag.cs
+│   │   │   └── Herd.cs
+│   │   ├── ValueObjects/
+│   │   │   ├── SenasaId.cs
+│   │   │   ├── UHFRFID.cs
+│   │   │   └── GeoPoint.cs
+│   │   ├── Enums/
+│   │   │   ├── TagStatus.cs      // Active, LowBattery, NotRegistered, Duplicate
+│   │   │   └── ValidationOutcome.cs
+│   │   ├── Interfaces/
+│   │   │   ├── ITagReader.cs
+│   │   │   ├── ISenasaLocalDb.cs
+│   │   │   └── IReportGenerator.cs
+│   │   └── Services/
+│   │       └── TagValidationService.cs
+│   │
+│   ├── Infrastructure/            # Adaptadores reales y simulados
+│   │   ├── Readers/
+│   │   │   ├── MockUHFReader.cs             // para pruebas
+│   │   │   ├── FeigOBIDReader.cs            // integración real con lectores Feig
+│   │   │   └── SerialPortUHFAdapter.cs       // genérico por puerto serie
+│   │   ├── Data/
+│   │   │   ├── LocalSenasaDb.cs             // SQLite + descarga incremental
+│   │   │   └── SenasaSyncService.cs          // descarga vía API (cuando hay red)
+│   │   └── Reporting/
+│   │       └── PdfReportGenerator.cs         // iText7 + plantilla SENASA-like
+│   │
+│   ├── Presentation.Cli/          # Aplicación de consola para Windows/Linux (campo)
+│   │   └── Program.cs
+│   │
+│   └── Presentation.Maui/         # App móvil (Android/iOS) — opcional avanzado
+│       └── (estructura típica .NET MAUI)
+│
+├── tools/
+│   ├── senasa-db-sync/
+│   │   └── SenasaDbUpdater.cs    # CLI para actualizar DB local desde USB/API
+│   └── tag-simulator/
+│       └── FakeUHFTagger.cs     # genera caravanas válidas para test
+│
+└── docs/
+    ├── protocolo_validacion_senasa.md
+    └── guia_campo_pampeano.md     # con ejemplos de Eduardo Castex, Lonquimay, etc.

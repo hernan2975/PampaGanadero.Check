@@ -1,0 +1,33 @@
+# Requisitos para PampaGanadero.Check
+# Entorno de desarrollo y ejecución
+
+## SDK requerido
+dotnet-sdk-8.0
+
+## Paquetes NuGet (instalados automáticamente)
+# Core/Infrastructure/Presentation.Cli no requieren paquetes externos
+# Presentation.Maui requiere:
+Microsoft.Maui.Controls >= 8.0.90
+Microsoft.Extensions.Hosting >= 8.0.0
+
+## Opcional: para generación de PDF
+itext7 >= 8.0.4
+
+## Opcional: para sincronización remota
+Newtonsoft.Json >= 13.0.3
+
+## Hardware recomendado (campo)
+# - Lector UHF: Feig OBID iScan+ / Impinj R420 / Zebra FX7500
+# - Dispositivo: Windows 10+ / Android 8+ / Raspberry Pi 4 (Linux ARM64)
+# - Almacenamiento: 500 MB libres (base SENASA La Pampa ~300 MB)
+
+## Entornos soportados
+# - Windows 10/11 (x64)
+# - Ubuntu 20.04+ / Debian 11+ (x64, ARM64)
+# - Android 8.0+
+# - iOS 15.0+ (simulador)
+
+## Modo offline garantizado
+# - Sin dependencia de internet para validación
+# - Base de datos local SQLite
+# - Ejecutable autocontenido (< 50 MB)

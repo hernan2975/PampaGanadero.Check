@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PampaGanadero.Presentation.Maui.MainPage"
+             Title="Pampa Ganadero">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            
+            <Label Text="🔍 Validador de Caravanas" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" />
+
+            <Label Text="Modo: Simulado (La Pampa)" 
+                   TextColor="{StaticResource Secondary}" 
+                   HorizontalOptions="Center" />
+
+            <Button Text="Escanear Caravana" 
+                    Clicked="OnScanClicked"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White" />
+
+            <Frame BackgroundColor="{StaticResource Light}" 
+                   Padding="15" 
+                   IsVisible="{Binding IsResultVisible}">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="{Binding TagId}" FontAttributes="Bold" />
+                    <Label Text="{Binding Status}" />
+                    <Label Text="{Binding Location}" />
+                    <Label Text="{Binding Message}" TextColor="Red" IsVisible="{Binding HasAlerts}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="⚠️ Modo campo: funciona sin internet" 
+                   FontSize="12" 
+                   TextColor="Gray"
+                   HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
